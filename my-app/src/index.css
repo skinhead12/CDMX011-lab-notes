@@ -18,3 +18,7 @@ form{
   padding-right: 100px;
   margin: 50px;
 }
+
+#btnLogin, #btnSign{
+  background-color: #FB8D62;
+}
