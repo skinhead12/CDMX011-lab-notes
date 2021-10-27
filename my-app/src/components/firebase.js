@@ -1,1 +1,0 @@
-import firebaseApp from "../secret";

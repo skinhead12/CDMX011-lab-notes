@@ -2,23 +2,50 @@ body{
   display: flex;
   align-items: center;
   flex-direction: column;
-  padding: 10px;
-  margin: 5px;
+
   background-color: #61D4B3;
 }
 
-form{
+form {
+  font-family: 'Roboto', sans-serif;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   background-color: #FDD365;
   border-radius: 10px;
   border-style: solid;
   padding: 50px;
-  padding-left: 100px;
-  padding-right: 100px;
+  padding-left: 50px;
+  padding-right: 50px;
   margin: 50px;
 }
 
-#btnLogin, #btnSign{
+div {
+display: flex;
+flex-direction: column;
+align-content: space-between;
+align-items: center;
+}
+
+input{
+  text-align: center;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  background-color: #FDD365;
+}
+
+button{
   background-color: #FB8D62;
+  border-radius: 15px;
+}
+
+header{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-content: space-around;
+  background-color: #FDD365;
+  position: fixed;
+  width: 100vh;
+  height: 10vh;
 }
