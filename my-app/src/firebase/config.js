@@ -13,8 +13,8 @@ const firebaseConfig = {
 const fire = firebase.initializeApp(firebaseConfig);
 const auth = fire.auth();
 const google = new firebase.auth.GoogleAuthProvider();
-
-export {auth, google}
+const userPersistence = firebase.auth().setPersistence(firebase.auth.Auth.Persistence.LOCAL);
+export {auth, google, userPersistence}
 
 
 

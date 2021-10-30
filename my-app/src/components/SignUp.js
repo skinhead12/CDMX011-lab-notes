@@ -6,24 +6,27 @@ import '../index.css';
 const SignUp = () => {
     const [email, setEmail] = useState ('')
     const [pass, setPass] = useState('')
+    const [passCon, setPassCon] = useState('')
     const history = useHistory();
 
     const registerUser = (e) =>{
         e.preventDefault()
-        auth.createUserWithEmailAndPassword(email,pass)
-        .then((res) => {
-            history.push('/wallnotes')
-            alert('Usuario Registrado')
-        })
-        .catch((err) => console.log(err))
+        if (pass === passCon){
+            auth.createUserWithEmailAndPassword(email,pass)
+            .then((res) => {
+                history.push('/wallnotes')
+                alert('Usuario Registrado')
+            })
+            .catch((err) => console.log(err))      
+            }  else {
+            alert('The passwords must coincide');
+        }
     }
 
-    const [user,setUser] = useState('')
     const registerGoogle =(e) => {
         auth.signInWithPopup(google)
         .then(respuesta => {
             history.push('/wallnotes')
-            setUser(respuesta.user)
         })
             .catch(err => {
                 console.log(err)
@@ -37,7 +40,7 @@ return(
             <h3>SignUp</h3>
         <input  onChange={(e) => {setEmail(e.target.value)}} type="email" placeholder="Email" className="emailSignUp"/><br/>
         <input  onChange={(e) => {setPass(e.target.value)}} type="password" placeholder="Password" className="passSign"/><br/>
-        <input type="password" placeholder="Confirm Password" /><br/>
+        <input  onChange={(e) => {setPassCon(e.target.value)}} type="password" placeholder="Confirm Password" /><br/>
         <button>Submit</button>
             </div>
             <div>
