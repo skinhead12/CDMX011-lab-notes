@@ -1,11 +1,30 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react'
 import { useHistory } from 'react-router';
-import { auth } from '../firebase/config';
+import { auth, db } from '../firebase/config';
+import { onDeleteNote } from '../firebase/auth';
+import { Link } from 'react-router-dom';
+import '../index.css';
 
 const WallNotes = () => {
 
-    const history = useHistory();
+    const [notes, setNotes] = useState([]);
 
+    const getNotes =  () => {
+    db.collection("Tasks").onSnapshot((querySnapshot)=>{
+        const docs = [];
+    querySnapshot.forEach((doc) => {
+        docs.push({...doc.data(), id:doc.id});
+    });
+    setNotes(docs);
+    });
+};
+
+    useEffect (() => {
+        getNotes();
+
+    }, []);
+
+    const history = useHistory();
     const LogOutProfile = (e) =>{
         auth.signOut()
         .then(ele =>{
@@ -17,15 +36,31 @@ const WallNotes = () => {
         })
     }
  return(
-            <><header>
-         <nav>
-             <button>Create Note</button>
+        <><header>
+         <nav className="navBar">
+            <Link to="/modal">
+             <button className="createha" >Create Note</button>
+             </Link>
+             <button className="LogOut" onClick={LogOutProfile}>Log Out</button>
          </nav>
-     </header>
-     <div className="signUpContainer">
-         <br/><br/><br/><br/>
-             <p>This is the wall</p>
-             <button onClick={LogOutProfile}>Log Out</button>
+     </header><div className="signUpContainer">
+             <br /><br /><br /><br />
+             <p>This is the wall</p> 
+             <div className="principal">
+                {notes.map(notes => (
+                   <div className="card">
+                       <div className="card-body">
+                           <h4>{notes.title}</h4>
+                           <p>{notes.description}</p>
+                           <div className="container-btns">
+                           <button onClick={() => onDeleteNote(notes.id)}>Delete</button>
+                           <button>Edit</button>
+                           </div>
+                       </div>
+                   </div>
+
+                ))}
+             </div>      
          </div></>
 );
 }

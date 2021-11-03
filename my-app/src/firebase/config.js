@@ -1,5 +1,6 @@
 import firebase from "firebase/app";
 import 'firebase/auth';
+import 'firebase/firestore';
 
 const firebaseConfig = {
   apiKey: "AIzaSyBXhHImcj_UC6Zu6_vYxjcw2xV3OQM6D_Y",
@@ -11,10 +12,11 @@ const firebaseConfig = {
 };
 
 const fire = firebase.initializeApp(firebaseConfig);
+const db = fire.firestore();
 const auth = fire.auth();
 const google = new firebase.auth.GoogleAuthProvider();
 const userPersistence = firebase.auth().setPersistence(firebase.auth.Auth.Persistence.LOCAL);
-export {auth, google, userPersistence}
+export {auth, google, userPersistence, db}
 
 
 
