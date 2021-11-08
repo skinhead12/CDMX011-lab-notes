@@ -2,12 +2,15 @@ import React, {useEffect, useState} from 'react'
 import { useHistory } from 'react-router';
 import { auth, db } from '../firebase/config';
 import { onDeleteNote } from '../firebase/auth';
-import { Link } from 'react-router-dom';
+import Modal from './Modal';
 import '../index.css';
 
 const WallNotes = () => {
-
     const [notes, setNotes] = useState([]);
+    const [showModal, setShowModal] = useState(false);
+    const openModal = () => {
+    setShowModal((prev) => !prev);
+    };
 
     const getNotes =  () => {
     db.collection("Tasks").onSnapshot((querySnapshot)=>{
@@ -18,7 +21,6 @@ const WallNotes = () => {
     setNotes(docs);
     });
 };
-
     useEffect (() => {
         getNotes();
 
@@ -36,14 +38,14 @@ const WallNotes = () => {
         })
     }
  return(
-        <><header>
+        <div className="signUpContainer">
+        <header className="wallheader">
          <nav className="navBar">
-            <Link to="/modal">
-             <button className="createha" >Create Note</button>
-             </Link>
+        <button className="createNote" onClick={openModal} >Create Note</button>             
              <button className="LogOut" onClick={LogOutProfile}>Log Out</button>
+             <Modal showModal={showModal} setShowModal={setShowModal}/>
          </nav>
-     </header><div className="signUpContainer">
+        </header>
              <br /><br /><br /><br />
              <p>This is the wall</p> 
              <div className="principal">
@@ -54,14 +56,14 @@ const WallNotes = () => {
                            <p>{notes.description}</p>
                            <div className="container-btns">
                            <button onClick={() => onDeleteNote(notes.id)}>Delete</button>
-                           <button>Edit</button>
+                           <button >Edit</button>
                            </div>
                        </div>
                    </div>
 
                 ))}
              </div>      
-         </div></>
+         </div>
 );
 }
 

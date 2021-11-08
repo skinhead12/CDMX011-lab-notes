@@ -38,16 +38,6 @@ button {
   border-radius: 15px;
 }
 
-header{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  align-content: space-around;
-  background-color: #FDD365;
-  position: fixed;
-  width: 100vh;
-  height: 10vh;
-}
 
 .card{
   align-content: space-around;
@@ -56,6 +46,7 @@ header{
   width: 200px;
   height: 200px;
   background-color: #FEFFDE;
+  flex: 3 3 auto;
 }
 
 .principal{
@@ -88,14 +79,43 @@ header{
   width: 100px;
 }
 
-.notasContainer{
-  background-image: url(https://firebasestorage.googleapis.com/v0/b/labnotes-a892d.appspot.com/o/notas-adhesivas.png?alt=media&token=b93f9ad1-f5a6-49f0-b1cd-7f6c5aaa2134);
-}
-
 .emailInput{
   height: 25px;
+  width: 200px;
+
 }
 
 .passInput{
   height: 25px;
+  width: 200px;
+}
+
+.logo{
+  width: 200px;
+  height: 80px;
+}
+.logoNotes{
+  width: 200px;
+  height: 120px;
+}
+
+
+.notasContainer{
+  background-image: url(https://firebasestorage.googleapis.com/v0/b/labnotes-a892d.appspot.com/o/logoNotes.png?alt=media&token=2eeeb204-deca-43b6-8072-9613445159dd);
+}
+
+.wallheader{
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-content: space-between;
+  background-color: #FDD365;
+  position: fixed;
+  width: 100%;
+  height: 15%;
+}
+
+.navBar{
+  align-content: space-between;
 }
