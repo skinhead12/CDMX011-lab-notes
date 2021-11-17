@@ -12,3 +12,11 @@ export const onDeleteNote = async (id) =>{
     console.log('Note Deleted')
 }
 
+export const getNoteById = async (id) => {
+    const doc = await db.collection('Tasks').doc(id).get();
+   // setValues({...doc,data()})
+    //console.log(doc.data())
+    const notePrint = doc.data()
+    return notePrint
+}
+

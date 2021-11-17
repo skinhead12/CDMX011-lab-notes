@@ -1,7 +1,9 @@
 import React, {useEffect, useState} from 'react'
 import { useHistory } from 'react-router';
+
+
 import { auth, db } from '../firebase/config';
-import { onDeleteNote } from '../firebase/auth';
+import { onDeleteNote, getNoteById } from '../firebase/auth';
 import Modal from './Modal';
 import '../index.css';
 
@@ -11,6 +13,17 @@ const WallNotes = () => {
     const openModal = () => {
     setShowModal((prev) => !prev);
     };
+
+    const [user, setUser] = useState({});
+    useEffect(() => {
+        auth.onAuthStateChanged(user => {
+        if(user) {
+          setUser({email: user.email})
+        } else {
+          setUser({null:''})
+        }
+    })
+}, [])
 
     const getNotes =  () => {
     db.collection("Tasks").onSnapshot((querySnapshot)=>{
@@ -26,6 +39,17 @@ const WallNotes = () => {
 
     }, []);
 
+    const [note, setNote] = useState("");
+    
+    const handleEdit = (id) => {
+        const editNote =  getNoteById (id)
+        .then ((res) => {
+        setShowModal((prev) => !prev)
+        setNote(res)    
+        })
+    } 
+
+
     const history = useHistory();
     const LogOutProfile = (e) =>{
         auth.signOut()
@@ -38,29 +62,30 @@ const WallNotes = () => {
         })
     }
  return(
-        <div className="signUpContainer">
+        <div className="wallContainer">
         <header className="wallheader">
          <nav className="navBar">
-        <button className="createNote" onClick={openModal} >Create Note</button>             
-             <button className="LogOut" onClick={LogOutProfile}>Log Out</button>
-             <Modal showModal={showModal} setShowModal={setShowModal}/>
+         <p className="userName">Welcome {user.email} </p> 
+            <div className="btns">
+            <button className="createNote" onClick={openModal} >Create Note</button>             
+             <button className="LogOut" onClick={LogOutProfile}></button>
+             <Modal showModal={showModal} setShowModal={setShowModal} note={note} />      
+            </div>
          </nav>
         </header>
-             <br /><br /><br /><br />
-             <p>This is the wall</p> 
              <div className="principal">
                 {notes.map(notes => (
                    <div className="card">
                        <div className="card-body">
+                            <p>{new Date().toLocaleDateString()}</p>
                            <h4>{notes.title}</h4>
                            <p>{notes.description}</p>
                            <div className="container-btns">
-                           <button onClick={() => onDeleteNote(notes.id)}>Delete</button>
-                           <button >Edit</button>
+                           <button  className="btnDelete" onClick={() => onDeleteNote(notes.id)}></button>
+                           <button  className="btnEdit" onClick={()=> handleEdit(notes.id)}></button>
                            </div>
                        </div>
                    </div>
-
                 ))}
              </div>      
          </div>

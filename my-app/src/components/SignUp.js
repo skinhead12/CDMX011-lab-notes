@@ -1,11 +1,12 @@
 /* eslint-disable jsx-a11y/alt-text */
 import React, { useState } from 'react'
 import { Link, useHistory } from 'react-router-dom';
+
 import { auth, google } from '../firebase/config';
 import '../index.css';
 
 const SignUp = () => {
-    const [email, setEmail] = useState ('')
+    const[email, setEmail] = useState ('')
     const [pass, setPass] = useState('')
     const [passCon, setPassCon] = useState('')
     const history = useHistory();
@@ -16,7 +17,8 @@ const SignUp = () => {
             auth.createUserWithEmailAndPassword(email,pass)
             .then((res) => {
                 history.push('/wallnotes')
-                alert('Usuario Registrado')
+                alert('Usuario Registrado' + email)
+                
             })
             .catch((err) => console.log(err))      
             }  else {
@@ -24,10 +26,13 @@ const SignUp = () => {
         }
     }
 
+
     const registerGoogle =(e) => {
         auth.signInWithPopup(google)
         .then(respuesta => {
             history.push('/wallnotes')
+            console.log('Welcome ' + email)
+           
         })
             .catch(err => {
                 console.log(err)

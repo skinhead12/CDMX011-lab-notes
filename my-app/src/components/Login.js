@@ -1,6 +1,7 @@
 /* eslint-disable jsx-a11y/alt-text */
 import React, {useState} from 'react'
 import { Link, useHistory } from 'react-router-dom';
+
 import { auth, google } from '../firebase/config';
 import '../index.css';
 
@@ -18,7 +19,9 @@ const Login = () => {
         //auth.setPersistence(userPersistence)
         .then((res) => {
             history.push('/wallnotes')
-            console.log('Welcome')
+            console.log('Welcome ' + email)
+            
+           
         })
         .catch((err) => 
         console.log(err))      
@@ -26,11 +29,13 @@ const Login = () => {
   
     }
 
+
     const registerGoogle =(e) => {
         auth.signInWithPopup(google)
         .then(respuesta => {
             history.push('/wallnotes')
-            setEmail(respuesta.email);
+            console.log('Welcome ' + email)
+          
         })
             .catch(err => {
                 console.log(err)
