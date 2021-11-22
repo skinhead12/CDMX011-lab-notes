@@ -21,6 +21,7 @@ const WallNotes = () => {
           setUser({email: user.email})
         } else {
           setUser({null:''})
+          console.log('user sign out')
         }
     })
 }, [])
@@ -49,7 +50,6 @@ const WallNotes = () => {
         })
     } 
 
-
     const history = useHistory();
     const LogOutProfile = (e) =>{
         auth.signOut()
@@ -61,23 +61,25 @@ const WallNotes = () => {
             console.log('session ended successfully')
         })
     }
+    
  return(
         <div className="wallContainer">
         <header className="wallheader">
          <nav className="navBar">
          <p className="userName">Welcome {user.email} </p> 
             <div className="btns">
+               <img className="logoWall" src="https://firebasestorage.googleapis.com/v0/b/labnotes-a892d.appspot.com/o/logoNotes2.0.png?alt=media&token=a4f03ae4-18e6-4e2a-a0ec-f91ba0077fb8"/>     
             <button className="createNote" onClick={openModal} >Create Note</button>             
-             <button className="LogOut" onClick={LogOutProfile}></button>
-             <Modal showModal={showModal} setShowModal={setShowModal} note={note} />      
+             <button className="LogOut" onClick={LogOutProfile}></button>     
             </div>
          </nav>
         </header>
+        <Modal showModal={showModal} setShowModal={setShowModal} note={note} /> 
              <div className="principal">
                 {notes.map(notes => (
                    <div className="card">
                        <div className="card-body">
-                            <p>{new Date().toLocaleDateString()}</p>
+                          {/*  <p>{new Date().lastModified}</p>  */}
                            <h4>{notes.title}</h4>
                            <p>{notes.description}</p>
                            <div className="container-btns">

@@ -42,7 +42,7 @@ const SignUp = () => {
 return(
     <div className="signUpContainer">
          <header className="logo">
-                <img className="logoNotes" src="https://firebasestorage.googleapis.com/v0/b/labnotes-a892d.appspot.com/o/logoNotes.png?alt=media&token=2eeeb204-deca-43b6-8072-9613445159dd"/>
+                <img className="logoNotes" src="https://firebasestorage.googleapis.com/v0/b/labnotes-a892d.appspot.com/o/logoNotes2.0.png?alt=media&token=a4f03ae4-18e6-4e2a-a0ec-f91ba0077fb8"/>
             </header>
         <form  onSubmit={registerUser} className="formSignup">
             <div className='boxcontainer'>

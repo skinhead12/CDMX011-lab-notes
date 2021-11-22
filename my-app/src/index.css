@@ -15,7 +15,7 @@ form {
   padding: 50px;
   padding-left: 50px;
   padding-right: 50px;
-  margin: 50px;
+  margin: 30px;
 }
 
 div {
@@ -41,7 +41,7 @@ button {
 
 
 .card{
-  align-content: space-between;
+  align-content: space-around;
   border-style: solid;
   border-radius: 10px;
   width: 200px;
@@ -57,8 +57,11 @@ button {
   flex-wrap: wrap;
 }
 
+
+
 .container-btns{
   flex-direction: row;
+  align-items: unset;
 }
 
 .boxEmail{
@@ -98,7 +101,7 @@ button {
 }
 .logoNotes{
   width: 200px;
-  height: 120px;
+  height: 90px;
 }
 
 
@@ -110,8 +113,6 @@ button {
   position: fixed;
   display: flex;
   flex-direction: column;
-  align-content: space-around;
-  align-items: center;
   background-color: #FDD365;
   position: fixed;
   width: 100%;
@@ -119,38 +120,40 @@ button {
 }
 
 .navBar{
-  display: flex;
-  align-content: space-between;
-  flex-direction: row;
-
-  
+  flex-direction: column;
 }
 
 .principal{
-  padding-top: 10rem;
+  padding-top: 6rem;
 }
 
 .btns{
-  padding-top: 1rem;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-around;
+
 }
 
 .userName{
- padding: 10px;
+  font-size: 15px;
   font-family:'Roboto', sans-serif ;
+  text-align: center;
+
 }
 
 .LogOut{
-  background-image: url(https://firebasestorage.googleapis.com/v0/b/labnotes-a892d.appspot.com/o/icons8-logout-58.png?alt=media&token=57cbae3f-7f63-4308-95d6-5acc05694533);
-  width: 60px;
-  height: 60px;
+  background-image: url(https://firebasestorage.googleapis.com/v0/b/labnotes-a892d.appspot.com/o/icons8-logout-58.png?alt=media&token=7b45c36b-2f0a-4586-b271-fcac894fcb2b);
+  width: 37px;
+  height: 37px;
   border-style: none;
   background-color: transparent;
+  background-repeat: no-repeat;
 }
 
 .card-body{
-  align-content: space-between;
+  justify-content: space-between;
+  
+  font-family:'Roboto', sans-serif ;
+  font-size: 12px;
 }
 
 .container-btns{
@@ -190,4 +193,14 @@ background-repeat: no-repeat;
   font-family:'Roboto', sans-serif ;
   margin: 20px;
   background-color: transparent;
+}
+
+.headerModal{
+  font-family:'Roboto', sans-serif ;
+  align-items: center;
+}
+
+.logoWall{
+  width: 100px;
+  height: 70px;
 }

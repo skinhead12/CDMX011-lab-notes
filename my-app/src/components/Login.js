@@ -18,10 +18,7 @@ const Login = () => {
         auth.signInWithEmailAndPassword(email,pass)
         //auth.setPersistence(userPersistence)
         .then((res) => {
-            history.push('/wallnotes')
-            console.log('Welcome ' + email)
-            
-           
+            history.push('/wallnotes')            
         })
         .catch((err) => 
         console.log(err))      
@@ -29,12 +26,10 @@ const Login = () => {
   
     }
 
-
     const registerGoogle =(e) => {
         auth.signInWithPopup(google)
         .then(respuesta => {
             history.push('/wallnotes')
-            console.log('Welcome ' + email)
           
         })
             .catch(err => {
@@ -45,7 +40,7 @@ const Login = () => {
     return (
         <div className="loginContainer">
             <header className="logo">
-                <img className="logoNotes" src="https://firebasestorage.googleapis.com/v0/b/labnotes-a892d.appspot.com/o/logoNotes.png?alt=media&token=2eeeb204-deca-43b6-8072-9613445159dd"/>
+                <img className="logoNotes" src="https://firebasestorage.googleapis.com/v0/b/labnotes-a892d.appspot.com/o/logoNotes2.0.png?alt=media&token=a4f03ae4-18e6-4e2a-a0ec-f91ba0077fb8"/>
             </header>
             <form className="formLogin">
                 <div>

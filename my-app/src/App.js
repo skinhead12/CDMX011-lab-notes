@@ -16,14 +16,11 @@ function App() {
     <Router>
       <div className="Container">
       <Switch>
-      <Route path="/signup" component={SignUp}>
-      </Route>
-      <Route exact path="/wallnotes" component={WallNotes}></Route>
-      <Route exact path="/modal" component={Modal}>
-      </Route>
-      <Route exact path="/" component={Login}>
-      </Route>
-      <Route component={PageNotFound}></Route>
+      <Route path="/signup" component={SignUp}/>
+      <Route exact path="/wallnotes" component={WallNotes}/>
+      <Route exact path="/modal" component={Modal}/>
+      <Route exact path="/" component={Login}/>
+      <Route component={PageNotFound}/>
       </Switch>
     </div>       
     </Router>
