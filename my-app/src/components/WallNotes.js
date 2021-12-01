@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react'
 import { useHistory } from 'react-router';
-
+import {Link} from 'react-router-dom';
 
 import { auth, db } from '../firebase/config';
 import { onDeleteNote, getNoteById } from '../firebase/auth';
@@ -11,6 +11,7 @@ const WallNotes = () => {
     const [notes, setNotes] = useState([]);
     const [showModal, setShowModal] = useState(false);
     const openModal = () => {
+        setNote('')
     setShowModal((prev) => !prev);
     };
 
@@ -84,11 +85,13 @@ const WallNotes = () => {
                            <p>{notes.description}</p>
                            <div className="container-btns">
                            <button  className="btnDelete" onClick={() => onDeleteNote(notes.id)}></button>
-                           <button  className="btnEdit" onClick={()=> handleEdit(notes.id)}></button>
+                           {/* <Link to= {`edit/${notes.id} `}>
+                           <button  className="btnEdit" ></button></Link> */}
+                           <button className="btnEdit" onClick={()=> handleEdit(notes.id)}></button>
                            </div>
                        </div>
                    </div>
-                ))}
+                ))} : 
              </div>      
          </div>
 );

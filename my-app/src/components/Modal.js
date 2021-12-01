@@ -42,14 +42,13 @@ console.log(note.title)
                  <h3>Write your Note</h3>        
                 </header>
             <input onChange={handleInputChange} value={values.title || note.title }  name="title" placeholder="Title" className="TitleNote"/>
-            <textarea onChange={handleInputChange} value={note.description ? note.description : values.description} name="description" placeholder="Description" className="BodyNote" rows="5"/>
+            <textarea onChange={handleInputChange} value={values.description || note.description } name="description" placeholder="Description" className="BodyNote" rows="5"/>
             <div className="ContainerBtn" >
-                <button className="btnSave" onClick={handleSubmit}>Save</button>
-                <button className="btnUpdate" onClick={handleUpdate}>Update</button>
+                  <button className="btnSave" onClick={handleSubmit}> { note ? 'Update' : 'Save'}</button> 
             </div>
             </div>
         </article>    
-    ) : <p>Notes </p>;
+    ) : <p>Notes </p>
 };
 
 export default Modal

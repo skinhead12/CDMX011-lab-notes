@@ -20,7 +20,10 @@ export const getNoteById = async (id, values ) => {
     return notePrint
 }
 
-export const onUpdate = async (id, onUpdate) => {
-    await db.collection("Tasks").doc(id).update(onUpdate);
+export const onUpdate = async (id, values) => {
+    await db.collection("Tasks").doc(id).update(id, values);
 } 
 
+// Crear una funcion que espere un parametro de ID y ese ID lo vas a consultar en firebase y traeras los datos
+
+//Crear una funcion handleEditNote va a esperar(id,nota)

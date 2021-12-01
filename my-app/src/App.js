@@ -9,6 +9,7 @@ import Login from './components/Login';
 import SignUp from './components/SignUp';
 import WallNotes from './components/WallNotes';
 import PageNotFound from './components/PageNotFound';
+import Edit from './components/Edit';
 import Modal from './components/Modal';
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
       <div className="Container">
       <Switch>
       <Route path="/signup" component={SignUp}/>
+      <Route exact path="/edit/:idDocument" component={Edit}/>  
       <Route exact path="/wallnotes" component={WallNotes}/>
       <Route exact path="/modal" component={Modal}/>
       <Route exact path="/" component={Login}/>
