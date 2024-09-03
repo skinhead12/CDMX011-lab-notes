@@ -1,13 +1,206 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+body{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  background-color: #61D4B3;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+form {
+  font-family: 'Roboto', sans-serif;
+  display: flex;
+  flex-direction: row;
+  background-color: #FDD365;
+  border-radius: 10px;
+  border-style: solid;
+  padding: 50px;
+  padding-left: 50px;
+  padding-right: 50px;
+  margin: 30px;
+}
+
+div {
+display: flex;
+flex-direction: column;
+align-content: space-between;
+align-items: center;
+}
+
+input{
+  text-align: center;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  background-color: #FDD365;
+  outline: inherit;
+}
+
+button {
+  background-color: #FB8D62;
+  border-radius: 15px;
+}
+
+
+.card{
+  align-content: space-around;
+  border-style: solid;
+  border-radius: 10px;
+  width: 200px;
+  height: 200px;
+  background-color: #FEFFDE;
+  margin: 10px;
+
+}
+
+.principal{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+
+
+.container-btns{
+  flex-direction: row;
+  align-items: unset;
+}
+
+.boxEmail{
+  width: 25px;
+  height: 25px;
+  position: relative;
+  right: 40%;
+  top: -45px;
+}
+
+.passLock{
+  width: 30px;
+  height: 25px;
+  position: relative;
+  right: 40%;
+  top: -49px;
+}
+
+.lineaContainer{
+  width: 100px;
+}
+
+.emailInput{
+  height: 25px;
+  width: 200px;
+
+}
+
+.passInput{
+  height: 25px;
+  width: 200px;
+}
+
+.logo{
+  width: 200px;
+  height: 80px;
+}
+.logoNotes{
+  width: 200px;
+  height: 90px;
+}
+
+
+.notasContainer{
+  background-image: url(https://firebasestorage.googleapis.com/v0/b/labnotes-a892d.appspot.com/o/logoNotes.png?alt=media&token=2eeeb204-deca-43b6-8072-9613445159dd);
+}
+
+.wallheader{
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  background-color: #FDD365;
+  position: fixed;
+  width: 100%;
+  height: 20%;
+}
+
+.navBar{
+  flex-direction: column;
+}
+
+.principal{
+  padding-top: 6rem;
+}
+
+.btns{
+  flex-direction: row;
+  justify-content: space-around;
+
+}
+
+.userName{
+  font-size: 15px;
+  font-family:'Roboto', sans-serif ;
+  text-align: center;
+
+}
+
+.LogOut{
+  background-image: url(https://firebasestorage.googleapis.com/v0/b/labnotes-a892d.appspot.com/o/icons8-logout-58.png?alt=media&token=7b45c36b-2f0a-4586-b271-fcac894fcb2b);
+  width: 37px;
+  height: 37px;
+  border-style: none;
+  background-color: transparent;
+  background-repeat: no-repeat;
+}
+
+.card-body{
+  justify-content: space-between;
+  
+  font-family:'Roboto', sans-serif ;
+  font-size: 12px;
+}
+
+.container-btns{
+  align-content: space-around;
+  margin: 5px;
+}
+
+.btnDelete{
+  width: 25px;
+  height: 25px;
+background-image: url(https://firebasestorage.googleapis.com/v0/b/labnotes-a892d.appspot.com/o/icons8-basura-48.png?alt=media&token=5f8c2808-6961-44c0-a4f9-09c0d94f5a79);
+border-style: none;
+background-color: transparent;
+}
+
+.btnEdit{
+  width: 28px;
+  height: 27px;
+background-image: url(https://firebasestorage.googleapis.com/v0/b/labnotes-a892d.appspot.com/o/icons8-pencil-58.png?alt=media&token=09fb7b59-80bc-49e1-8926-c0588c5cf981);
+border-style: none;
+background-color: transparent;
+background-repeat: no-repeat;
+}
+
+
+
+.TitleNote{
+  background-color: transparent;
+  border-left: none;
+  border-right: none;
+  border-top: none;
+  margin: 20px;
+}
+
+.BodyNote{
+  text-align: center;
+  font-family:'Roboto', sans-serif ;
+  margin: 20px;
+  background-color: transparent;
+}
+
+.headerModal{
+  font-family:'Roboto', sans-serif ;
+  align-items: center;
+}
+
+.logoWall{
+  width: 100px;
+  height: 70px;
 }
